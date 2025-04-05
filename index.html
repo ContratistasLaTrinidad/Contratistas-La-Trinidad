@@ -1,1 +1,372 @@
-Este archivo debe ser reemplazado con el contenido HTML generado.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contratistas La Trinidad</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes Personalizadas -->
+  <style>
+    @font-face {
+      font-family: 'WhitRabt';
+      src: url('./whitrabt.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'GaramondClassicoSC';
+      src: url('./Garamond Classico SC.ttf') format('truetype');
+    }
+
+    :root {
+      --color-primary: #000000;
+      --color-secondary: #ffffff;
+    }
+
+    body {
+      font-family: 'WhitRabt', sans-serif;
+      background-color: var(--color-secondary);
+      color: var(--color-primary);
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'GaramondClassicoSC', serif;
+    }
+
+    .button {
+      background-color: var(--color-primary);
+      color: var(--color-secondary);
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-family: 'WhitRabt', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #222222;
+    }
+
+    .hero-section {
+      position: relative;
+      background-image: url('./fondo-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--color-secondary);
+      padding: 2rem;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+
+    .hero-section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-servicios {
+      background-color: var(--color-secondary);
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+
+    .section-servicios h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-servicios p {
+      color: #4b5563;
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .grid-servicios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card-servicio {
+      background-color: var(--color-primary);
+      color: var(--color-secondary);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-servicio:hover {
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .card-servicio h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-servicio p {
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+
+    .galeria-servicios {
+      background-color: #ffffff;
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+
+    .galeria-servicios h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .rejilla-galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .item-galeria {
+      background-color: #000000;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .item-galeria:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .item-galeria img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .item-galeria a {
+      display: block;
+      color: #ffffff;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .item-galeria a:hover {
+      color: #cccccc;
+    }
+
+    .footer-seccion {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 4rem 1.5rem 2rem 1.5rem;
+    }
+
+    .footer-contenedor {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-col h3,
+    .footer-col h4 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #cccccc;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .footer-col ul li a:hover {
+      color: #cccccc;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 40px);
+      gap: 1rem;
+      justify-content: start;
+    }
+
+    .social-grid a img {
+      width: 40px;
+      height: 40px;
+      filter: brightness(0) invert(1);
+    }
+
+    .social-grid a:hover img {
+      filter: brightness(0.8) invert(0.8);
+    }
+
+    .footer-copy {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #888888;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <h1 class="text-5xl md:text-6xl mb-6">Contratistas La Trinidad</h1>
+    <p class="text-lg md:text-xl mb-4 max-w-2xl">
+      Soluciones integrales en construcción civil, remodelaciones y diseño arquitectónico de alta calidad.
+    </p>
+    <p class="italic text-sm md:text-base text-gray-200 mb-8">
+      “Pasión por construir, compromiso por excelencia”
+    </p>
+    <a href="#contacto" class="button">Contáctanos</a>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="section-servicios">
+    <h2>Nuestros Servicios</h2>
+    <p>Ofrecemos soluciones completas para la ejecución de obras y proyectos arquitectónicos.</p>
+
+    <div class="grid-servicios">
+      <a href="#ejecucion-obra" class="card-servicio">
+        <h3>Ejecución de obra civil</h3>
+        <p>Desarrollo integral de proyectos constructivos desde la cimentación hasta la entrega final.</p>
+      </a>
+      <a href="#remodelaciones" class="card-servicio">
+        <h3>Remodelaciones</h3>
+        <p>Renovación de espacios residenciales y comerciales con acabados de alta calidad.</p>
+      </a>
+      <a href="#diseno" class="card-servicio">
+        <h3>Diseño arquitectónico y presupuestal</h3>
+        <p>Propuestas arquitectónicas funcionales con análisis detallado de costos y materiales.</p>
+      </a>
+      <a href="#acabados" class="card-servicio">
+        <h3>Acabados arquitectónicos</h3>
+        <p>Enchapes, pintura, carpintería y detalles que realzan cada espacio construido.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria" class="galeria-servicios">
+    <h2>Galería de Servicios</h2>
+    <p>Explora algunos de nuestros trabajos en diferentes categorías:</p>
+
+    <div class="rejilla-galeria">
+      <div class="item-galeria">
+        <img src="./obra-civil.jpg" alt="Ejecución de obra civil">
+        <a href="#ejecucion-obra">Ejecución de obra civil</a>
+      </div>
+      <div class="item-galeria">
+        <img src="./remodelacion.jpg" alt="Remodelaciones">
+        <a href="#remodelaciones">Remodelaciones</a>
+      </div>
+      <div class="item-galeria">
+        <img src="./diseno.jpg" alt="Diseño arquitectónico">
+        <a href="#diseno">Diseño arquitectónico y presupuestal</a>
+      </div>
+      <div class="item-galeria">
+        <img src="./acabados.jpg" alt="Acabados">
+        <a href="#acabados">Acabados arquitectónicos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-seccion">
+    <div class="footer-contenedor">
+
+      <div class="footer-col">
+        <h3>Contratistas La Trinidad</h3>
+        <p>
+          Somos una empresa dedicada a la ejecución de proyectos de construcción, remodelación y urbanismo. Contamos con un equipo profesional comprometido con la excelencia, la calidad y la responsabilidad en cada obra que realizamos. Nuestro propósito es transformar ideas en espacios funcionales, seguros y estéticamente duraderos.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#ejecucion-obra">Ejecución de obra civil</a></li>
+          <li><a href="#remodelaciones">Remodelaciones</a></li>
+          <li><a href="#diseno">Diseño arquitectónico y presupuestal</a></li>
+          <li><a href="#acabados">Acabados arquitectónicos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Proyectos</h4>
+        <ul>
+          <li><a href="#proyecto1">Edificio Altavista</a></li>
+          <li><a href="#proyecto2">Parque Lineal Sur</a></li>
+          <li><a href="#proyecto3">Centro Comercial Nova</a></li>
+          <li><a href="#proyecto4">Mejoramiento Vial El Poblado</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Síguenos</h4>
+        <div class="social-grid">
+          <a href="#"><img src="./icons/instagram.svg" alt="Instagram"></a>
+          <a href="#"><img src="./icons/youtube.svg" alt="YouTube"></a>
+          <a href="#"><img src="./icons/facebook.svg" alt="Facebook"></a>
+          <a href="#"><img src="./icons/twitter.svg" alt="Twitter"></a>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-copy">
+      © 2025 Contratistas La Trinidad. Todos los derechos reservados.
+    </div>
+  </footer>
+
+</body>
+</html>
